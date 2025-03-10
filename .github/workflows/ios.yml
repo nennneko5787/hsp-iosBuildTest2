@@ -20,14 +20,13 @@ jobs:
           cd iosbuildtest2
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]") 
-          echo $default | cat >default
+          echo "SCHEME=$default" >> $GITHUB_ENV
           echo Using default scheme: $default
 
-      - name: Build .app
+      - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          scheme=$(cat default)
-          xcodebuild -scheme "$scheme" -allowProvisioningUpdates -configuration Release build
+          xcodebuild -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
