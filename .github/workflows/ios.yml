@@ -21,7 +21,7 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
-      - name: Archive iOS App
+      - name: Archive iOS App (If needed)
         env:
           scheme: ${{ 'default' }}
         run: |
@@ -39,9 +39,9 @@ jobs:
           cd iosbuildtest2
           if [ $scheme = default ]; then scheme=$(cat default); fi
           export_options_plist="ExportOptions.plist" # Create an ExportOptions.plist file as needed
-          xcodebuild -exportArchive -archivePath $PWD/build/$scheme.xcarchive -exportPath $PWD/build -exportOptionsPlist $export_options_plist CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          xcodebuild -exportPath $PWD/build build
       - name: Upload IPA as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: iOS-IPA
-          path: $PWD/build/*.ipa
+          name: hsp3dish
+          path: $PWD/build/*.app
