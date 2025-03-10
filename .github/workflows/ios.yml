@@ -39,7 +39,7 @@ jobs:
           cd iosbuildtest2
           if [ $scheme = default ]; then scheme=$(cat default); fi
           export_options_plist="ExportOptions.plist" # Create an ExportOptions.plist file as needed
-          xcodebuild -exportPath $PWD/build build
+          xcodebuild -scheme "$scheme" -configuration Release -exportPath $PWD/build build
       - name: Upload IPA as Artifact
         uses: actions/upload-artifact@v4
         with:
