@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build .app
+    name: Build .app and Convert to .ipa
     runs-on: macos-latest
 
     steps:
@@ -34,8 +34,14 @@ jobs:
           APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name "*.app" | head -n 1)
           echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
 
-      - name: Upload .app as Artifact
+      - name: Convert .app to .ipa
+        run: |
+          mkdir -p Payload
+          cp -R "${{ env.APP_PATH }}" Payload/
+          zip -r hsp3dish.ipa Payload
+
+      - name: Upload .ipa as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: hsp3dish
-          path: ${{ env.APP_PATH }}
+          path: hsp3dish.ipa
