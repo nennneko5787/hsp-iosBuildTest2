@@ -27,7 +27,7 @@ jobs:
         run: |
           cd iosbuildtest2
           scheme=$(cat default)
-          xcodebuild -scheme "$scheme" -configuration Release build
+          xcodebuild -scheme "$scheme" -allowProvisioningUpdates -configuration Release build
 
       - name: Find .app Path
         run: |
