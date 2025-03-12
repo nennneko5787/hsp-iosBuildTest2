@@ -18,8 +18,8 @@ jobs:
       - name: Set Default Scheme
         run: |
           cd iosbuildtest2
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          scheme_list=$(xcodebuild -workspace hspproj.xcworkspace -list -json | tr -d "\n")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['workspace']['targets'][0]")
           echo "SCHEME=$default" >> $GITHUB_ENV
           echo Using default scheme: $default
 
@@ -33,7 +33,7 @@ jobs:
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          xcodebuild -scheme "Release" -sdk iphonesimulator -configuration Release build
+          xcodebuild -workspace hspproj.xcworkspace -scheme "Release" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
