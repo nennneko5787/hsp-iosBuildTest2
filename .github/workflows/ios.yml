@@ -20,7 +20,6 @@ jobs:
           sudo gem install cocoapods
           pod setup
           cd iosbuildtest2
-          pod 'Google-Mobile-Ads-SDK'
           pod install --repo-update
 
       - name: Build .app (Simulator)
