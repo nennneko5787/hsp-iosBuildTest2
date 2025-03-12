@@ -1,7 +1,7 @@
 #import "HspView.h"
 #import "HspViewController.h"
 #import "iOSBridge.h"
-// #import <AudioToolbox/AudioServices.h>
+#import <AudioToolbox/AudioServices.h>
 
 #include "../hsp3/hsp3config.h"
 #include "../hsp3/hgio.h"
@@ -28,11 +28,11 @@ static int hsp3dish_devcontrol( char *cmd, int p1, int p2, int p3 )
 {
     
 	if ( strcmp( cmd, "vibrate" )==0 ) {
-        // AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
 		return 0;
 	}
 	if ( strcmp( cmd, "sound" )==0 ) {
-        // AudioServicesPlaySystemSound(p1);
+        AudioServicesPlaySystemSound(p1);
 		return 0;
 	}
 	return -1;
