@@ -2,6 +2,4 @@ platform :ios, '12.0'
 
 target 'iosbuildtest2' do
   use_frameworks!
-  pod 'Google-Mobile-Ads-SDK'
-  pod 'GoogleUserMessagingPlatform'
 end
