@@ -32,7 +32,7 @@
     if (adView == nil) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         
-        adView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        adView = [[GADBannerView alloc] initWithAdSize:GADAdSizeBanner];
         adView.adUnitID = @"ca-app-pub-xxxxxxxxxxxxxxxx/xxxxxxxxxx";  // AdMob の広告ユニット ID を設定
         adView.rootViewController = self;
         adView.delegate = self;
