@@ -23,6 +23,15 @@ jobs:
           echo "SCHEME=$default" >> $GITHUB_ENV
           echo Using default scheme: $default
 
+      - name: Install CocoaPods
+        run: |
+          sudo gem install cocoapods
+          pod setup
+          cd iosbuildtest2
+          echo "platform :ios, '11.0'" > Podfile  # Podfileを作成
+          echo "pod 'Google-Mobile-Ads-SDK'" >> Podfile  # Google-Mobile-Ads-SDK を追加
+          pod install
+
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
