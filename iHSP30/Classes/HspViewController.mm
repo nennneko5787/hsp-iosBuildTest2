@@ -48,6 +48,18 @@
     NSLog(@"viewDidDisappear");
 }
 
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    NSLog(@"bannerViewDidLoadAd");
+}
+
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError*)error
+{
+    NSLog(@"bannerView");
+}
+
 - (void)actMode:(int)amode
 {
     HspView *hspview;
