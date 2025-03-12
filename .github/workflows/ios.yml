@@ -28,7 +28,7 @@ jobs:
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo "SCHEME=$default" >> $GITHUB_ENV
-          xcodebuild -workspace hspproj.xcworkspace -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
+          xcodebuild -workspace hspproj.xcworkspace -scheme "$default" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
