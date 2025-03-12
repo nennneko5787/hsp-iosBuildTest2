@@ -15,17 +15,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Get scheme
+      - name: Set Default Scheme
         run: |
+          cd iosbuildtest2
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]") 
           echo "SCHEME=$default" >> $GITHUB_ENV
+          echo Using default scheme: $default
 
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          rm -rf ~/Library/Developer/Xcode/DerivedData/*
-          xcodebuild -workspace hspproj.xcworkspace -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
+          xcodebuild -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
