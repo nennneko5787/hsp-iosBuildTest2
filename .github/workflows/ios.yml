@@ -19,6 +19,8 @@ jobs:
           curl -LO https://github.com/xybp888/iOS-SDKs/releases/download/iOS-SDKs/iPhoneOS10.3.sdk.zip
           unzip iPhoneOS10.3.sdk.zip
           sudo mv iPhoneOS10.3.sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/
+          sudo xcodebuild -runFirstLaunch
+          sudo xcodebuild -showsdks
 
       - name: Set Default Scheme
         run: |
