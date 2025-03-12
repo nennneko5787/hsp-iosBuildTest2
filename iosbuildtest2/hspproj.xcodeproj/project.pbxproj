@@ -689,7 +689,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../iHSP27/lib,
+					../iHSP30/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = onionsoftware.hsptv.hspproj;
@@ -726,7 +726,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../iHSP27/lib,
+					../iHSP30/lib,
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = onionsoftware.hsptv.hspproj;
