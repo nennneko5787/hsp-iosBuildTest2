@@ -39,6 +39,8 @@
         <key>UIRequiredDeviceCapabilities</key>
         <array>
             <string>armv7</string>
+            <string>arm64</string>
+            <string>arm64e</string>
         </array>
         <key>UIStatusBarHidden</key>
         <true />
@@ -49,9 +51,5 @@
         </array>
         <key>UIViewControllerBasedStatusBarAppearance</key>
         <false />
-        <key>GADApplicationIdentifier</key>
-        <string>ca-app-pub-4330360014245167~7853503509</string>
-        <key>GADIsAdManagerApp</key>
-        <true />
     </dict>
 </plist>

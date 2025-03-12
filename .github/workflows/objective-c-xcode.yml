@@ -27,6 +27,20 @@ jobs:
         run: |
           cd iosbuildtest2
           if [ $scheme = default ]; then scheme=$(cat default); fi
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
+          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then 
+            filetype_parameter="workspace"
+            file_to_build="`ls -A | grep -i \\.xcworkspace\$`"
+          else 
+            filetype_parameter="project"
+            file_to_build="`ls -A | grep -i \\.xcodeproj\$`"
+          fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
+          # Build with result bundle
+          xcodebuild clean build analyze -scheme "$scheme" \
+            -"$filetype_parameter" "$file_to_build" \
+            -resultBundlePath TestResults.xcresult | xcpretty && exit ${PIPESTATUS[0]}
+      - name: Upload xcresult Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcresult
+          path: iosbuildtest2/TestResults.xcresult
