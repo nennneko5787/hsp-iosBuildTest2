@@ -1,31 +1,32 @@
 #import "Canvas.h"
 #import "Graphics.h"
 #import "Image.h"
+#import <iAd/iAd.h>
 
 #define ACTMODE_LOCK 2
 #define ACTMODE_NORMAL 1
 #define ACTMODE_STOP 0
 
-// HspViewの宣言
-@interface HspView : Canvas <UIAlertViewDelegate, UIAccelerometerDelegate>
-{
+//HspViewの宣言
+@interface HspView : Canvas <UIAlertViewDelegate,UIAccelerometerDelegate> {
     int act_mode;
     int disp_mode;
-    int cls_mode;
-    int cls_color;
+	int cls_mode;
+	int cls_color;
 
     int dialog_type;
     int disp_sx, disp_sy;
-    CGFloat _scalefix;
-    CGFloat _scaleuse;
-    int _screenx;
-    int _screeny;
+    CGFloat      _scalefix;
+    CGFloat      _scaleuse;
+    int          _screenx;
+    int          _screeny;
 
-    int mt_flag;
-    bool adview_enable;
-    int adview_flag;
+    int          mt_flag;
+    bool         adview_enable;
+    int          adview_flag;
     UIAccelerometer *accelerometer;
     UIViewController *parent;
+    
 }
 - (void)actMode:(int)amode;
 - (void)dispMode:(int)dmode;
@@ -41,5 +42,6 @@
 - (void)setParent:(UIViewController *)controller;
 - (id)initWithFrameSide:(CGRect)frame;
 - (id)initWithFrameOrg:(CGRect)frame;
+
 
 @end
