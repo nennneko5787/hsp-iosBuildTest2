@@ -1,5 +1,5 @@
 platform :ios, '12.0'
 
-target 'Release' do
+target 'iosbuildtest2' do
   pod 'Google-Mobile-Ads-SDK'
 end
