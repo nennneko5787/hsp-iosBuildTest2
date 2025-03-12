@@ -40,6 +40,7 @@ jobs:
             -"$filetype_parameter" "$file_to_build" \
             -resultBundlePath TestResults.xcresult | xcpretty && exit ${PIPESTATUS[0]}
       - name: Upload xcresult Bundle
+        if: ${{ failure() }}
         uses: actions/upload-artifact@v4
         with:
           name: xcresult
