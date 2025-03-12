@@ -28,7 +28,8 @@ jobs:
           sudo gem install cocoapods
           pod setup
           cd iosbuildtest2
-          echo "platform :ios, '11.0'" > Podfile  # Podfileを作成
+          xcodebuild -list
+          echo "platform :ios, '12.0'" > Podfile  # Podfileを作成
           echo "pod 'Google-Mobile-Ads-SDK'" >> Podfile  # Google-Mobile-Ads-SDK を追加
           pod install
 
