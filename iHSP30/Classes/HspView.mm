@@ -35,10 +35,6 @@ static int hsp3dish_devcontrol( char *cmd, int p1, int p2, int p3 )
         AudioServicesPlaySystemSound(p1);
 		return 0;
 	}
-	if ( strcmp( cmd, "iAd" )==0 ) {
-        [hspview_controller controlBanner:p1];
-		return 0;
-	}
 	return -1;
 }
 
@@ -102,7 +98,6 @@ static void hsp3dish_setdevinfo( void )
 
         accelerometer = nil;
         mt_flag = 0;
-        adview_enable = false;
     }
     act_mode = 0;
     return self;

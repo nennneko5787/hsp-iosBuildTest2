@@ -14,14 +14,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download iOS 10.3 SDK
-        run: |
-          curl -LO https://github.com/xybp888/iOS-SDKs/releases/download/iOS-SDKs/iPhoneOS10.3.sdk.zip
-          unzip iPhoneOS10.3.sdk.zip
-          sudo mv iPhoneOS10.3.sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/
-          sudo xcodebuild -runFirstLaunch
-          sudo xcodebuild -showsdks
-
       - name: Set Default Scheme
         run: |
           cd iosbuildtest2
@@ -30,10 +22,10 @@ jobs:
           echo "SCHEME=$default" >> $GITHUB_ENV
           echo Using default scheme: $default
 
-      - name: Build .app (iOS 10)
+      - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          xcodebuild -scheme "$SCHEME" -sdk "iphoneos10.3" -configuration Release build
+          xcodebuild -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
