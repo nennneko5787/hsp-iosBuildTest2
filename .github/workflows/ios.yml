@@ -28,6 +28,7 @@ jobs:
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo "SCHEME=$default" >> $GITHUB_ENV
+          rm -rf ~/Library/Developer/Xcode/DerivedData/*
           xcodebuild -workspace hspproj.xcworkspace -scheme "$default" -sdk iphonesimulator -configuration Release OTHER_LDFLAGS="-ObjC -lswiftCore $(inherited)" build
 
       - name: Find .app Path
