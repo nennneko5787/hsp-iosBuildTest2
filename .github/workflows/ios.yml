@@ -19,7 +19,7 @@ jobs:
         run: |
           cd iosbuildtest2
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]") 
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo "SCHEME=$default" >> $GITHUB_ENV
           echo Using default scheme: $default
 
@@ -28,15 +28,12 @@ jobs:
           sudo gem install cocoapods
           pod setup
           cd iosbuildtest2
-          xcodebuild -list
-          echo "platform :ios, '12.0'" > Podfile  # Podfileを作成
-          echo "pod 'Google-Mobile-Ads-SDK'" >> Podfile  # Google-Mobile-Ads-SDK を追加
           pod install
 
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          xcodebuild -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
+          xcodebuild -scheme "Release" -sdk iphonesimulator -configuration Release build
 
       - name: Find .app Path
         run: |
