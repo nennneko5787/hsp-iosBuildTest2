@@ -35,8 +35,6 @@ static int hsp3dish_devcontrol( char *cmd, int p1, int p2, int p3 )
         AudioServicesPlaySystemSound(p1);
 		return 0;
 	}
-	if ( strcmp( cmd, "googleAd" )==0 ) {
-	return -1;
 }
 
 static int *hsp3dish_devinfoi( char *name, int *size )
