@@ -1,7 +1,6 @@
 #import "Canvas.h"
 #import "Graphics.h"
 #import "Image.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define ACTMODE_LOCK 2
 #define ACTMODE_NORMAL 1
