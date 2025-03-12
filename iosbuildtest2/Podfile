@@ -1,6 +1,3 @@
-source 'https://github.com/CocoaPods/Specs'
-source 'https://github.com/CocoaPods/Specs.git'
-
 platform :ios, '12.0'
 
 target 'iosbuildtest2' do
