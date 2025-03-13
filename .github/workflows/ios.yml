@@ -25,7 +25,7 @@ jobs:
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          xcodebuild -scheme "$SCHEME" -sdk iphoneos -configuration Release build
+          xcodebuild -scheme "$SCHEME" -sdk iphoneos -configuration Release build CODE_SIGNING_ALLOWED=NO
 
       - name: Find .app Path
         run: |
