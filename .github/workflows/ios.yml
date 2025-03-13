@@ -25,7 +25,7 @@ jobs:
       - name: Build .app (Simulator)
         run: |
           cd iosbuildtest2
-          xcodebuild -scheme "$SCHEME" -sdk iphonesimulator -configuration Release build
+          xcodebuild -scheme "$SCHEME" -sdk iphoneos -configuration Release build
 
       - name: Find .app Path
         run: |
