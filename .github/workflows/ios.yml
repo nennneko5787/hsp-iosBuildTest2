@@ -16,7 +16,7 @@ jobs:
 
       - name: Set Default Scheme
         run: |
-          cd iosbuildtest2
+          cd block3
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]") 
           echo "SCHEME=$default" >> $GITHUB_ENV
@@ -24,12 +24,12 @@ jobs:
 
       - name: Build .app (Simulator)
         run: |
-          cd iosbuildtest2
+          cd block3
           xcodebuild -scheme "$SCHEME" -sdk iphoneos -configuration Release build CODE_SIGNING_ALLOWED=NO
 
       - name: Find .app Path
         run: |
-          cd iosbuildtest2
+          cd block3
           APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name "*.app" | head -n 1)
           echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
 
@@ -37,10 +37,10 @@ jobs:
         run: |
           mkdir -p Payload
           cp -R "${{ env.APP_PATH }}" Payload/
-          zip -r hsp3dish.ipa Payload
+          zip -r block3.ipa Payload
 
       - name: Upload .ipa as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hsp3dish
-          path: hsp3dish.ipa
+          name: block3
+          path: block3.ipa
