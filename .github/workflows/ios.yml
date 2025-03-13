@@ -30,17 +30,20 @@ jobs:
           cd $projectName
           xcodebuild -scheme "$SCHEME" -sdk iphoneos -configuration Release build CODE_SIGNING_ALLOWED=NO
 
-      - name: Find .app Path and Convert .app to .ipa
+      - name: Find .app Path
         run: |
           cd $projectName
           APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -name "*.app" | head -n 1)
+          echo "APP_PATH=$APP_PATH" >> $GITHUB_ENV
 
+      - name: Convert .app to .ipa
+        run: |
           mkdir -p Payload
-          cp -R "$APP_PATH" Payload/
+          cp -R "${{ env.APP_PATH }}" Payload/
           zip -r ${{env.projectName}}.ipa Payload
 
       - name: Upload .ipa as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{env.projectName}}
-          path: ${{env.projectName}}.ipa
+          path: $projectName.ipa
