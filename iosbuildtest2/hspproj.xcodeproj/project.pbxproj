@@ -17,7 +17,7 @@
 		1E480DBB1859C4540052A2F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E480DBA1859C4540052A2F2 /* main.m */; };
 		1E480DBF1859C4540052A2F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E480DBE1859C4540052A2F2 /* AppDelegate.m */; };
 		1E480DE21859C4A60052A2F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DDD1859C4A60052A2F2 /* AudioToolbox.framework */; };
-		// 1E480DE31859C4A60052A2F2 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DDE1859C4A60052A2F2 /* iAd.framework */; };
+		1E480DE31859C4A60052A2F2 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DDE1859C4A60052A2F2 /* iAd.framework */; };
 		1E480DE41859C4A60052A2F2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DDF1859C4A60052A2F2 /* OpenAL.framework */; };
 		1E480DE51859C4A60052A2F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DE01859C4A60052A2F2 /* OpenGLES.framework */; };
 		1E480DE61859C4A60052A2F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E480DE11859C4A60052A2F2 /* QuartzCore.framework */; };
@@ -88,7 +88,7 @@
 		1E480DBD1859C4540052A2F2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1E480DBE1859C4540052A2F2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1E480DDD1859C4A60052A2F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		// 1E480DDE1859C4A60052A2F2 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+	    1E480DDE1859C4A60052A2F2 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		1E480DDF1859C4A60052A2F2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		1E480DE01859C4A60052A2F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		1E480DE11859C4A60052A2F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E480DE21859C4A60052A2F2 /* AudioToolbox.framework in Frameworks */,
-				// 1E480DE31859C4A60052A2F2 /* iAd.framework in Frameworks */,
+				1E480DE31859C4A60052A2F2 /* iAd.framework in Frameworks */,
 				1E480DE41859C4A60052A2F2 /* OpenAL.framework in Frameworks */,
 				1E480DE51859C4A60052A2F2 /* OpenGLES.framework in Frameworks */,
 				1E480DE61859C4A60052A2F2 /* QuartzCore.framework in Frameworks */,
